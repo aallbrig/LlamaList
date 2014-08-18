@@ -26,9 +26,7 @@
         <!-- Add your site or application content here -->
         <div class="container">
           <div id="navigation"></div>
-          <div class="row">
-            <div id="content"></div>
-          </div>
+          <div id="content"></div>
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -113,11 +111,29 @@
                 );
               }
             });
+            var LlamaResult = React.createClass({
+              render: function () {
+                var llamaNodes = this.props.llamas.map(function(){
+                    return (
+                      <div className="col-xs-4"> I am a llama result </div>
+                    )
+                });
+                return (
+                  <div className="llamaList">
+                    {llamaNodes}
+                  </div>
+                );
+              }
+            })
             $(function(){
-              var llamas = [];
+              var llamas = [1,2,3,4,5,6,7];
               React.renderComponent(
                 <NavBar displayName="Llama's List" />,
                 document.getElementById('navigation')
+              );
+              React.renderComponent(
+                <LlamaResult llamas={llamas} />,
+                document.getElementById('content')
               );
             });
         </script>
