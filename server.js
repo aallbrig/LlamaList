@@ -12,6 +12,7 @@ app.get('/home', function(req, res){
 app.get('/search', function(req, res){
   res.sendfile('search.html');
 })
+app.use(express.static(__dirname))
 
 var server = app.listen(4000, function() {
     console.log('Listening on port %d', server.address().port);

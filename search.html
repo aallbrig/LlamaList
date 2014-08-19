@@ -111,11 +111,28 @@
                 );
               }
             });
+            var LlamaPanel = React.createClass({
+              render: function () {
+                return (
+                  <div className="panel panel-success col-xs-4">
+                    <div className="panel-heading">
+                      <h3 className="panel-title">{this.props.llama.name}</h3>
+                    </div>
+                    <div className="panel-body">
+                      <img src="img/llama.jpg" className="img-responsive" />
+                      <h4>Species: {this.props.llama.type}</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sem ipsum, interdum quis tincidunt in, ultrices et risus. Nunc semper nibh id lorem imperdiet porttitor. Nam vitae viverra dui, nec scelerisque velit. Curabitur non turpis ut ligula commodo lobortis in id augue. In nisi urna, interdum vitae tincidunt sed, auctor ac nibh. Mauris iaculis iaculis elit eu volutpat. Fusce feugiat mattis rutrum. Vivamus fermentum mi non diam imperdiet adipiscing.</p>
+                      <div className="btn btn-info btn-lg form-control"> Cool! </div>
+                    </div>
+                  </div>
+                );
+              }
+            });
             var LlamaResult = React.createClass({
               render: function () {
-                var llamaNodes = this.props.llamas.map(function(){
+                var llamaNodes = this.props.llamas.map(function(llama, index){
                     return (
-                      <div className="col-xs-4"> I am a llama result </div>
+                      <LlamaPanel llama={llama}/>
                     )
                 });
                 return (
@@ -124,9 +141,18 @@
                   </div>
                 );
               }
-            })
+            });
             $(function(){
-              var llamas = [1,2,3,4,5,6,7];
+              var Llama = function(name, type) {
+                return {name: name, type: type}
+              }
+              var llamas = [
+                new Llama('Becky', 'alpaca'), 
+                new Llama('Doodle', 'llama'), 
+                new Llama('Gazorp', 'guanaco'), 
+                new Llama('Azorp', 'llama'),
+                new Llama('Zandy', 'alpaca')
+              ];
               React.renderComponent(
                 <NavBar displayName="Llama's List" />,
                 document.getElementById('navigation')
