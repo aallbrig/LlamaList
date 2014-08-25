@@ -40,8 +40,7 @@
           // The above declaration must remain intact at the top of the script.
           // Your code here
           // tutorial1-raw.js
-            var LoginForm = React.createClass({
-                displayName: 'LoginForm',
+            var LoginForm = React.createClass({displayName: 'LoginForm',
                 render: function() {
                     return (
                         <div>
@@ -54,17 +53,17 @@
                     );
                 }
             });
-            var LoginPanel = React.createClass({
-                displayName: 'LoginPanel',
-                render: function() {
-                    return (
-                        <div className="panel panel-default col-xs-6 col-xs-offset-3">
-                          <div className="panel-heading">{this.props.displayName}</div>
-                          <div className="panel-body">
-                            <LoginForm />
-                          </div>
-                        </div>
-                    );
+            var LoginPanel = React.createClass({displayName: 'LoginPanel',
+              render: function() {
+                console.log(this);
+                return (
+                    <div className="panel panel-default col-xs-6 col-xs-offset-3">
+                      <div className="panel-heading">{this.props.displayName}</div>
+                      <div className="panel-body">
+                        <LoginForm />
+                      </div>
+                    </div>
+                );
               }
             });
             React.renderComponent(
